@@ -1,0 +1,8 @@
+
+---
+
+## ⏰ Automation
+Configured cron job to run every 5 minutes:
+
+```bash
+*/5 * * * * /home/ubuntu/monitor.sh
