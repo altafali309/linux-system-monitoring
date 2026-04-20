@@ -1,33 +1,45 @@
 #!/bin/bash
 
-echo "===== System Monitoring Report ====="
-echo "Date: $(date)"
+LOG_FILE="system_report.log"
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+echo "========== System Monitoring Report =========="
+echo "Date: $TIMESTAMP"
 echo ""
 
-echo "---- CPU Usage ----"
-top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4 "%"}'
-
+# CPU Usage
+echo "_____ CPU Usage _____"
+CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
+echo "CPU Usage: $CPU%"
 echo ""
-echo "---- Memory Usage ----"
+
+# Memory Usage
+echo "_____ Memory Usage _____"
 free -h
-
 echo ""
-echo "---- Disk Usage ----"
+
+# Disk Usage
+echo "_____ Disk Usage _____"
 df -h
-
 echo ""
-echo "---- Running Services ----"
+
+# Running Services
+echo "_____ Running Services _____"
 systemctl list-units --type=service --state=running | head -10
-
 echo ""
-echo "Report saved to system_report.txt"
 
-# Save report
+# Save report to file
 {
-echo "===== System Monitoring Report ====="
-date
+echo "========== System Monitoring Report =========="
+echo "Date: $TIMESTAMP"
+echo "CPU Usage: $CPU%"
 echo ""
 free -h
 echo ""
 df -h
-} > system_report.txt
+echo ""
+systemctl list-units --type=service --state=running | head -10
+echo "---------------------------------------------"
+} >> $LOG_FILE
+
+echo "Report saved to $LOG_FILE"
