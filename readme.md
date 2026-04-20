@@ -1,14 +1,16 @@
 # 🐧 Linux System Monitoring Script
 
-This project is a Bash-based monitoring script designed to track system performance metrics such as CPU usage, memory utilization, disk usage, and running services.
+A lightweight Bash-based monitoring tool designed to track system performance metrics such as CPU usage, memory utilization, disk usage, and running services.
 
-It also logs system data with timestamps, making it useful for basic system monitoring and troubleshooting.
+The script logs system data with timestamps, enabling basic observability and troubleshooting in Linux environments.
 
 ---
 
 ## 🧠 Project Overview
 
-The goal of this project was to understand how Linux systems can be monitored using shell scripting and how automation can be implemented using cron jobs.
+This project was built to understand how system monitoring works at a low level using shell scripting and how automation can be implemented using cron jobs.
+
+It simulates a basic monitoring workflow similar to what system administrators use in real environments.
 
 ---
 
@@ -19,7 +21,7 @@ The goal of this project was to understand how Linux systems can be monitored us
 * Disk usage analysis
 * Running services inspection
 * Timestamp-based logging
-* Automated execution using cron
+* Automated execution using cron jobs
 
 ---
 
@@ -87,14 +89,14 @@ _____ Running Services _____
   rsyslog.service             loaded active running System Logging Service
   systemd-journald.service    loaded active running Journal Service
 
-  Report saved to system_report.log
+Report saved to system_report.log
 ```
 
 ---
 
 ## 🚀 How to Run
 
-Make the script executable:
+Make script executable:
 
 ```bash
 chmod +x monitor.sh
@@ -110,7 +112,7 @@ Run manually:
 
 ## ⏱️ Automation with Cron
 
-To run the script automatically every 5 minutes:
+Edit crontab:
 
 ```bash
 crontab -e
@@ -122,44 +124,46 @@ Add:
 */5 * * * * /full/path/monitor.sh
 ```
 
+This runs the script every 5 minutes.
+
 ---
 
 ## 📌 Use Case
 
 This script can be used by system administrators to:
 
-* Monitor system performance
-* Detect high resource usage
-* Log system behavior over time
-* Assist in troubleshooting
+* Monitor server performance
+* Identify high resource usage
+* Track system behavior over time
+* Assist in troubleshooting production issues
 
 ---
 
 ## 🧠 Key Learnings
 
-* Understanding Linux system resources
-* Writing and structuring Bash scripts
+* Understanding Linux system resource monitoring
+* Writing structured Bash scripts
 * Automating tasks using cron
-* Logging and monitoring system metrics
-* Debugging script execution in background environments
+* Logging system metrics for analysis
+* Debugging scripts running in background environments
 
 ---
 
 ## 🔥 Improvements Implemented
 
-* Added timestamp-based logging
+* Added timestamp-based logging for better traceability
 * Structured output for readability
-* Automated monitoring using cron
-* Included system services inspection
+* Integrated automation using cron jobs
+* Included running services inspection
 
 ---
 
 ## 🚀 Future Improvements
 
-* Add alerting for high CPU/memory usage
+* Add alerting system for high CPU/memory usage
 * Send logs via email or webhook
 * Integrate with monitoring tools (Prometheus, Grafana)
 
 ---
 
-This project helped strengthen my Linux fundamentals and introduced me to system monitoring and automation concepts.
+This project helped strengthen my Linux fundamentals and introduced me to real-world system monitoring and automation concepts.
